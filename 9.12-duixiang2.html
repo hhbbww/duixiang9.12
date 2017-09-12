@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		每一个对象都有
+		constructor  返回他的构造函数
+		 */
+		/*let zhangsan = {};
+			||
+		let zhangsan = new Object();*/
+		/*let zhangsan = {
+			"age" : 18,
+			"sex" : 'nan',
+			 name : 'zhangsan',
+			 say :function(){
+			 	alert(1)
+			 }
+		}
+		console.log(zhangsan);	
+		zhangsan.say();
+		let lisi ={
+			'age' : 22,
+			'name' : 'lisi',
+			'height' : '187',
+			'sex' : 'nan',
+			xingge :function(){
+				alert('内向')
+			},
+			piqi : function(){
+				alert('温和')
+			}
+		}
+		console.log(lisi);
+		lisi.xingge();
+		lisi.piqi();*/
+		/*
+		类  首字母大写 
+		方法写在constructor的外面
+		方法名（）{}
+		 */
+		
+		/*class Student{
+			constructor(){
+				this.age=18;
+			}
+			study(){
+				alert('学习')
+			}
+		}		
+		let zhangsan = new Student();
+		console.log(zhangsan)
+		zhangsan.study()*/
+		/*prototype*/
+		/*
+		1.给构造函数传参
+		给方法传参
+		2.方法可以调用自己的属性
+		3.属性也可以是一些数字----下标（也是一个属性）
+
+		 */
+		 /*
+		 my Array
+			数组的创建也可以是new Array('a','b','c');	 
+		  */
+		 let arr = new myArray('a','b',1,2,3,4,5,6,7);
+		 // console.log(arr)
+		 // arr.push('x','y','z');
+		 let index=arr.indexOf(2);
+		 // console.log(index)
+		 let someone =arr.some(function(value){
+		 	return typeof value == 'number'
+		 })
+		 // console.log(someone)
+		 let last=arr.lastIndexOf(1)
+		 // console.log(last)
+		 let everyone=arr.every(function(value){
+		 	return typeof value=='number'
+		 })
+		 // console.log(everyone)
+		 let reverseone=arr.Reverse();
+		 // console.log(reverseone)
+		 let mapone =arr.map(function(value){
+		 	return value-2;
+		 })
+		 // console.log(mapone);
+		 let filterone =arr.filter(function(value){
+		 	return value%2==1;
+		 })
+		 // console.log(filterone)
+		 let includesone = arr.includes(3);
+		 // console.log(includesone)
+		 let joinone= arr.join();
+		 console.log(joinone)
+		 function myArray(){
+		  		for(let i =0;i<arguments.length;i++){
+		  			this[i]=arguments[i];
+		  		}
+		  		this.length=arguments.length;
+		  		this.push=function(){
+		  			for(let i =0;i<arguments.length;i++){
+		  				this[this.length]=arguments[i];
+		  				this.length++;
+		  			}
+		  		}
+		  		this.indexOf = function(value){
+		  			for(let i =0;i<this.length;i++){
+		  				if(this[i]==value){
+		  					return i;
+		  				}
+		  			}
+		  			return -1;
+		  		}
+		  		this.lastIndexOf = function(value){
+		  			for(let i=this.length-1;i>=0;i--){
+		  				if(this[i]==value){
+		  					return i;
+		  				}
+		  			}
+		  			return -1;
+		  		}
+		  		this.some = function(fn){
+		  			for(let i=0;i<this.length;i++){
+		  				if(fn(this[i])){
+		  					return true;
+		  				}
+		  			}
+		  			return false;
+		  		}
+		  		this.every = function(fn){
+		  			for(let i=0;i<this.length;i++){
+		  				if(!(fn(this[i]))){
+		  					return false;
+		  				}
+		  			}
+		  			return true;
+		  		}
+		  		this.Reverse=function(){
+		  			let newarr=[]
+		  			for(let i=this.length-1;i>=0;i--){
+		  				newarr[newarr.length]=this[i]
+		  			}
+		  			return newarr;
+		  		}
+		  		this.map=function(fn){
+		  			let newarr=[];
+		  			for(let i=0;i<this.length;i++){
+		  				newarr[newarr.length]=fn(this[i])
+		  			}
+		  			return newarr;
+		  		}
+		  		this.filter=function(fn){
+		  			let newarr =[]
+		  			for(let i=0;i<this.length;i++){
+		  				if(fn(this[i])){
+		  					newarr[newarr.length]=this[i];
+		  				}
+		  			}
+		  			return newarr;
+		  		}
+		  		this.includes=function(str){
+		  			for(let i=0;i<this.length;i++){
+		  				if(this[i]==str){
+		  					return true;
+		  				}
+		  			}
+		  			return false;
+		  		}
+		  		this.join=function(value){
+		  			value = value == undefined ? '+' :value;
+		  			let result='';
+		  			for(let i= 0;i<this.length;i++){
+		  				if(i<this.length-1){
+		  					result  += this[i]+value;
+		  				}else{
+		  					result += this[i]
+		  				}
+		  			}
+		  			return result;
+		  		}
+		  }
+		  /*
+		  lastIndexOf includes
+		  reverse join
+		  sort
+		  some every map filter
+		   */
+	</script>
+
+</body>
+</html>
